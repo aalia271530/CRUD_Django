@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="static/home/home.css" /> -->
+    <title>Edit Page</title>
+    <style>
+      body {
+        background-color: #393646;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      #div1 {
+        background-color: #f4eee0;
+        max-width: fit-content;
+        padding: 1%;
+        margin-left: 40%;
+        margin-top: 15%;
+        border-radius: 10px;
+      }
+      #btn {
+        margin-left: 35%;
+        background-color: #6D5D6E;
+        border-radius:5px;
+        color: #f4eee0;
+        padding: 2px 5px 2px 5px;
+      }
+      #div2 {
+        margin-left: 90%;
+      }
+      #readbtn{
+        background-color: #6D5D6E;
+        border-radius:5px;
+        border-color: #f4eee0;
+        padding: 10px 10px 10px 10px;
+        color: #f4eee0;
+      }
+      #id {
+        margin-left: 16.5%;
+      }
+      #name{
+        margin-left: 0.5%;
+      }
+      input{
+        border-radius: 5px;
+      }
+      #msg{
+        color: #f4eee0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div2">
+      <form action="/show">
+        <input type="submit" id="readbtn" value="Show Record" />
+      </form>
+    </div>
+    <div id="div1">
+      <form action="/RecordEdited" method="post">
+        {% csrf_token %}
+        <h3>ID <input autofocus type="text" name="id" id="id" value={{ID}} /></h3>
+        <h3>NAME <input type="text" name="name" id="name" value={{NAME}} /></h3>
+        <h3>EMAIL <input type="text" name="email" value={{EMAIL}} /></h3>
+        <input type="submit" id="btn" value="Edit Record" />
+      </form>
+      <span>{{msg}}</span>
+    </div>
+  </body>
+</html>
